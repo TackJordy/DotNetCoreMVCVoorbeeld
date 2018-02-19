@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DotNetCoreMVCVoorbeeld.Models;
-
+using MyHowest;
 namespace DotNetCoreMVCVoorbeeld.Controllers
 {
     public class HomeController : Controller
@@ -28,6 +28,15 @@ namespace DotNetCoreMVCVoorbeeld.Controllers
             return View();
         }
 
-
+        public ViewResult Student()
+        {
+            List<Student> studenten = new List<Student>
+            {
+                new Student {Id=23, Naam="Jefke", AfstudeerGraad=Graad.Voldoening},
+                new Student {Id=23, Naam="Marieke", AfstudeerGraad=Graad.Onderscheiding},
+            };
+            ViewBag.Studenten = studenten;
+            return View();
+        }
     }
 }
